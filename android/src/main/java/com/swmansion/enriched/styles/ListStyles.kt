@@ -124,8 +124,9 @@ class ListStyles(private val view: EnrichedTextInputView) {
     val isShortcut = s.substring(start, end).startsWith(config.shortcut)
     val spans = s.getSpans(start, end, config.clazz)
 
-    // Remove spans if cursor is at the start of the paragraph and spans exist
-    if (isBackspace && start == cursorPosition && spans.isNotEmpty()) {
+    // Remove spans if cursor is at or near the start of the paragraph (matches iOS behavior)
+    // This handles: cursor at start (empty/merged paragraph) or at start+1 (deleted all content, only zero-width space remains)
+    if (isBackspace && cursorPosition <= start + 1 && spans.isNotEmpty()) {
       removeSpansForRange(s, start, end, config.clazz)
       return
     }
@@ -139,6 +140,8 @@ class ListStyles(private val view: EnrichedTextInputView) {
     }
 
     if (!isBackspace && isNewLine && isPreviousParagraphList(s, start, config.clazz)) {
+      // Remove any existing spans first (prevents double indent when pressing Enter between bullets)
+      removeSpansForRange(s, start, end, config.clazz)
       s.insert(cursorPosition, "\u200B")
       setSpan(s, name, start, end + 1)
       // Inform that new span has been added
