@@ -110,12 +110,20 @@ export interface HtmlStyleInternal {
     marginLeft?: Float;
     markerFontWeight?: string;
     markerColor?: ColorValue;
+    lineSpacing?: Float;
+    itemSpacing?: Float;
+    spacingBefore?: Float;
+    spacingAfter?: Float;
   };
   ul?: {
     bulletColor?: ColorValue;
     bulletSize?: Float;
     marginLeft?: Float;
     gapWidth?: Float;
+    lineSpacing?: Float;
+    itemSpacing?: Float;
+    spacingBefore?: Float;
+    spacingAfter?: Float;
   };
 }
 
