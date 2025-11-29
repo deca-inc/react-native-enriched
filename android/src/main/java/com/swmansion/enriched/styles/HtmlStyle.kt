@@ -37,11 +37,19 @@ class HtmlStyle {
   var olMarginLeft: Int = 24
   var olMarkerFontWeight: Int? = null
   var olMarkerColor: Int? = null
+  var olLineSpacing: Float = 0f
+  var olItemSpacing: Float = 0f
+  var olSpacingBefore: Float = 0f
+  var olSpacingAfter: Float = 0f
 
   var ulGapWidth: Int = 16
   var ulMarginLeft: Int = 24
   var ulBulletSize: Int = 8
   var ulBulletColor: Int = Color.BLACK
+  var ulLineSpacing: Float = 0f
+  var ulItemSpacing: Float = 0f
+  var ulSpacingBefore: Float = 0f
+  var ulSpacingAfter: Float = 0f
 
   var aColor: Int = Color.BLACK
   var aUnderline: Boolean = true
@@ -90,12 +98,20 @@ class HtmlStyle {
     olGapWidth = parseFloat(olStyle, "gapWidth").toInt()
     olMarkerColor = parseOptionalColor(olStyle, "markerColor")
     olMarkerFontWeight = parseOptionalFontWeight(olStyle, "markerFontWeight")
+    olLineSpacing = parseOptionalFloat(olStyle, "lineSpacing") ?: 0f
+    olItemSpacing = parseOptionalFloat(olStyle, "itemSpacing") ?: 0f
+    olSpacingBefore = parseOptionalFloat(olStyle, "spacingBefore") ?: 0f
+    olSpacingAfter = parseOptionalFloat(olStyle, "spacingAfter") ?: 0f
 
     val ulStyle = style.getMap("ul")
     ulBulletColor = parseColor(ulStyle, "bulletColor")
     ulGapWidth = parseFloat(ulStyle, "gapWidth").toInt()
     ulMarginLeft = parseFloat(ulStyle, "marginLeft").toInt()
     ulBulletSize = parseFloat(ulStyle, "bulletSize").toInt()
+    ulLineSpacing = parseOptionalFloat(ulStyle, "lineSpacing") ?: 0f
+    ulItemSpacing = parseOptionalFloat(ulStyle, "itemSpacing") ?: 0f
+    ulSpacingBefore = parseOptionalFloat(ulStyle, "spacingBefore") ?: 0f
+    ulSpacingAfter = parseOptionalFloat(ulStyle, "spacingAfter") ?: 0f
 
     val aStyle = style.getMap("a")
     aColor = parseColor(aStyle, "color")
