@@ -1,6 +1,6 @@
 {
   "name": "@deca-inc/react-native-enriched",
-  "version": "0.1.6-deca.1",
+  "version": "0.1.6-deca.3",
   "description": "Rich Text Editor component for React Native",
   "source": "./src/index.tsx",
   "main": "./lib/module/index.js",
@@ -37,7 +37,7 @@
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
-    "prepack": "bob build",
+    "prepare": "bob build",
     "release": "release-it",
     "android-studio": "open -a 'Android Studio' example/android",
     "xcode": "open -a 'Xcode' example/ios/EnrichedTextInputExample.xcworkspace"
