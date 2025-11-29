@@ -1,5 +1,5 @@
 {
-  "name": "react-native-enriched",
+  "name": "@deca-inc/react-native-enriched",
   "version": "0.1.6",
   "description": "Rich Text Editor component for React Native",
   "source": "./src/index.tsx",
@@ -49,14 +49,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/software-mansion/react-native-enriched.git"
+    "url": "git+https://github.com/deca-inc/react-native-enriched.git"
   },
   "author": "Software Mansion <contact@swmansion.com> (https://swmansion.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/software-mansion/react-native-enriched/issues"
+    "url": "https://github.com/deca-inc/react-native-enriched/issues"
   },
-  "homepage": "https://github.com/software-mansion/react-native-enriched#readme",
+  "homepage": "https://github.com/deca-inc/react-native-enriched#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
