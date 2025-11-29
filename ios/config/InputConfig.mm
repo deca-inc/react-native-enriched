@@ -29,10 +29,18 @@
   UIColor *_orderedListMarkerColor;
   UIFont *_orderedListMarkerFont;
   BOOL _olMarkerFontNeedsRecreation;
+  CGFloat _orderedListLineSpacing;
+  CGFloat _orderedListItemSpacing;
+  CGFloat _orderedListSpacingBefore;
+  CGFloat _orderedListSpacingAfter;
   UIColor *_unorderedListBulletColor;
   CGFloat _unorderedListBulletSize;
   CGFloat _unorderedListGapWidth;
   CGFloat _unorderedListMarginLeft;
+  CGFloat _unorderedListLineSpacing;
+  CGFloat _unorderedListItemSpacing;
+  CGFloat _unorderedListSpacingBefore;
+  CGFloat _unorderedListSpacingAfter;
   UIColor *_linkColor;
   TextDecorationLineEnum _linkDecorationLine;
   NSDictionary *_mentionProperties;
@@ -77,10 +85,18 @@
   copy->_orderedListMarkerFontWeight = [_orderedListMarkerFontWeight copy];
   copy->_orderedListMarkerColor = [_orderedListMarkerColor copy];
   copy->_orderedListMarkerFont = [_orderedListMarkerFont copy];
+  copy->_orderedListLineSpacing = _orderedListLineSpacing;
+  copy->_orderedListItemSpacing = _orderedListItemSpacing;
+  copy->_orderedListSpacingBefore = _orderedListSpacingBefore;
+  copy->_orderedListSpacingAfter = _orderedListSpacingAfter;
   copy->_unorderedListBulletColor = [_unorderedListBulletColor copy];
   copy->_unorderedListBulletSize = _unorderedListBulletSize;
   copy->_unorderedListGapWidth = _unorderedListGapWidth;
   copy->_unorderedListMarginLeft = _unorderedListMarginLeft;
+  copy->_unorderedListLineSpacing = _unorderedListLineSpacing;
+  copy->_unorderedListItemSpacing = _unorderedListItemSpacing;
+  copy->_unorderedListSpacingBefore = _unorderedListSpacingBefore;
+  copy->_unorderedListSpacingAfter = _unorderedListSpacingAfter;
   copy->_linkColor = [_linkColor copy];
   copy->_linkDecorationLine = [_linkDecorationLine copy];
   copy->_mentionProperties = [_mentionProperties mutableCopy];
@@ -321,6 +337,38 @@
   return _orderedListMarkerFont;
 }
 
+- (CGFloat)orderedListLineSpacing {
+  return _orderedListLineSpacing;
+}
+
+- (void)setOrderedListLineSpacing:(CGFloat)newValue {
+  _orderedListLineSpacing = newValue;
+}
+
+- (CGFloat)orderedListItemSpacing {
+  return _orderedListItemSpacing;
+}
+
+- (void)setOrderedListItemSpacing:(CGFloat)newValue {
+  _orderedListItemSpacing = newValue;
+}
+
+- (CGFloat)orderedListSpacingBefore {
+  return _orderedListSpacingBefore;
+}
+
+- (void)setOrderedListSpacingBefore:(CGFloat)newValue {
+  _orderedListSpacingBefore = newValue;
+}
+
+- (CGFloat)orderedListSpacingAfter {
+  return _orderedListSpacingAfter;
+}
+
+- (void)setOrderedListSpacingAfter:(CGFloat)newValue {
+  _orderedListSpacingAfter = newValue;
+}
+
 - (UIColor *)unorderedListBulletColor {
   return _unorderedListBulletColor;
 }
@@ -351,6 +399,38 @@
 
 - (void)setUnorderedListMarginLeft:(CGFloat)newValue {
   _unorderedListMarginLeft = newValue;
+}
+
+- (CGFloat)unorderedListLineSpacing {
+  return _unorderedListLineSpacing;
+}
+
+- (void)setUnorderedListLineSpacing:(CGFloat)newValue {
+  _unorderedListLineSpacing = newValue;
+}
+
+- (CGFloat)unorderedListItemSpacing {
+  return _unorderedListItemSpacing;
+}
+
+- (void)setUnorderedListItemSpacing:(CGFloat)newValue {
+  _unorderedListItemSpacing = newValue;
+}
+
+- (CGFloat)unorderedListSpacingBefore {
+  return _unorderedListSpacingBefore;
+}
+
+- (void)setUnorderedListSpacingBefore:(CGFloat)newValue {
+  _unorderedListSpacingBefore = newValue;
+}
+
+- (CGFloat)unorderedListSpacingAfter {
+  return _unorderedListSpacingAfter;
+}
+
+- (void)setUnorderedListSpacingAfter:(CGFloat)newValue {
+  _unorderedListSpacingAfter = newValue;
 }
 
 - (UIColor *)linkColor {

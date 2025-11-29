@@ -66,6 +66,21 @@
         pStyle.textLists = @[numberBullet];
         pStyle.headIndent = [self getHeadIndent];
         pStyle.firstLineHeadIndent = [self getHeadIndent];
+
+        // Apply list spacing
+        CGFloat lineHeight = [_input->config orderedListLineSpacing];
+        CGFloat itemSpacing = [_input->config orderedListItemSpacing];
+
+        if(lineHeight > 0) {
+          pStyle.maximumLineHeight = lineHeight;
+          pStyle.minimumLineHeight = lineHeight;
+        }
+        if(itemSpacing != 0) {
+          pStyle.paragraphSpacing = itemSpacing;
+        }
+        // Note: spacingBefore/After should be handled at the block level,
+        // not per-item, to avoid adding space before every item
+
         [_input->textView.textStorage addAttribute:NSParagraphStyleAttributeName value:pStyle range:range];
       }
     ];
@@ -88,6 +103,19 @@
   pStyle.textLists = @[numberBullet];
   pStyle.headIndent = [self getHeadIndent];
   pStyle.firstLineHeadIndent = [self getHeadIndent];
+
+  // Apply list spacing to typing attributes
+  CGFloat lineHeight = [_input->config orderedListLineSpacing];
+  CGFloat itemSpacing = [_input->config orderedListItemSpacing];
+
+  if(lineHeight > 0) {
+    pStyle.maximumLineHeight = lineHeight;
+    pStyle.minimumLineHeight = lineHeight;
+  }
+  if(itemSpacing != 0) {
+    pStyle.paragraphSpacing = itemSpacing;
+  }
+
   typingAttrs[NSParagraphStyleAttributeName] = pStyle;
   _input->textView.typingAttributes = typingAttrs;
 }

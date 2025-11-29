@@ -322,7 +322,27 @@ Class<RCTComponentViewProtocol> EnrichedTextInputViewCls(void) {
     }
     stylePropChanged = YES;
   }
-  
+
+  if(newViewProps.htmlStyle.ol.lineSpacing != oldViewProps.htmlStyle.ol.lineSpacing) {
+    [newConfig setOrderedListLineSpacing:newViewProps.htmlStyle.ol.lineSpacing];
+    stylePropChanged = YES;
+  }
+
+  if(newViewProps.htmlStyle.ol.itemSpacing != oldViewProps.htmlStyle.ol.itemSpacing) {
+    [newConfig setOrderedListItemSpacing:newViewProps.htmlStyle.ol.itemSpacing];
+    stylePropChanged = YES;
+  }
+
+  if(newViewProps.htmlStyle.ol.spacingBefore != oldViewProps.htmlStyle.ol.spacingBefore) {
+    [newConfig setOrderedListSpacingBefore:newViewProps.htmlStyle.ol.spacingBefore];
+    stylePropChanged = YES;
+  }
+
+  if(newViewProps.htmlStyle.ol.spacingAfter != oldViewProps.htmlStyle.ol.spacingAfter) {
+    [newConfig setOrderedListSpacingAfter:newViewProps.htmlStyle.ol.spacingAfter];
+    stylePropChanged = YES;
+  }
+
   if(newViewProps.htmlStyle.ul.bulletColor != oldViewProps.htmlStyle.ul.bulletColor) {
     if(isColorMeaningful(newViewProps.htmlStyle.ul.bulletColor)) {
       [newConfig setUnorderedListBulletColor:RCTUIColorFromSharedColor(newViewProps.htmlStyle.ul.bulletColor)];
@@ -344,7 +364,27 @@ Class<RCTComponentViewProtocol> EnrichedTextInputViewCls(void) {
     [newConfig setUnorderedListMarginLeft:newViewProps.htmlStyle.ul.marginLeft];
     stylePropChanged = YES;
   }
-  
+
+  if(newViewProps.htmlStyle.ul.lineSpacing != oldViewProps.htmlStyle.ul.lineSpacing) {
+    [newConfig setUnorderedListLineSpacing:newViewProps.htmlStyle.ul.lineSpacing];
+    stylePropChanged = YES;
+  }
+
+  if(newViewProps.htmlStyle.ul.itemSpacing != oldViewProps.htmlStyle.ul.itemSpacing) {
+    [newConfig setUnorderedListItemSpacing:newViewProps.htmlStyle.ul.itemSpacing];
+    stylePropChanged = YES;
+  }
+
+  if(newViewProps.htmlStyle.ul.spacingBefore != oldViewProps.htmlStyle.ul.spacingBefore) {
+    [newConfig setUnorderedListSpacingBefore:newViewProps.htmlStyle.ul.spacingBefore];
+    stylePropChanged = YES;
+  }
+
+  if(newViewProps.htmlStyle.ul.spacingAfter != oldViewProps.htmlStyle.ul.spacingAfter) {
+    [newConfig setUnorderedListSpacingAfter:newViewProps.htmlStyle.ul.spacingAfter];
+    stylePropChanged = YES;
+  }
+
   if(newViewProps.htmlStyle.a.color != oldViewProps.htmlStyle.a.color) {
     if(isColorMeaningful(newViewProps.htmlStyle.a.color)) {
       [newConfig setLinkColor:RCTUIColorFromSharedColor(newViewProps.htmlStyle.a.color)];
